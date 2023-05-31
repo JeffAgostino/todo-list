@@ -1,0 +1,21 @@
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by priority">Priority</th>
+    <td mat-cell *matCellDef="let row">{{ row.priority }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">Description</th>
+    <td mat-cell *matCellDef="let row">{{ row.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Due date</th>
+    <td mat-cell *matCellDef="let row">{{ row.dueDate }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="listColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: listColumns"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
