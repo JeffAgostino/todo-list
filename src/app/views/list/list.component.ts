@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { IList } from './list.interface';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort, SortDirection } from '@angular/material/sort';
@@ -16,12 +16,15 @@ export class ListComponent implements OnInit, AfterViewInit {
   listColumns: string[] = ['priority', 'description', 'dueDate'];
   dataSource: MatTableDataSource<IList>;
 
+  public pageTitle = 'To Do Management Table'
 
   serverUrl = 'http://localhost:5000/toDoList/';
 
   constructor(
     private http: HttpClient
   ) { }
+
+  @HostBinding('class') class = 'list';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

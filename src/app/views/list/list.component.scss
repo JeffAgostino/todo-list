@@ -1,0 +1,76 @@
+@import 'src/assets/styles/core/colors.scss';
+
+.list {
+  display: block;
+  width: 100%;
+  padding: 72px;
+
+  .list__title {
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 48px;
+    text-align: center;
+    color: $main-color;
+  }
+
+  .table-wrapper {
+    background-color: $table-background;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(#000, .3);
+    overflow: hidden;
+
+  }
+
+  .mat-mdc-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .mat-mdc-header-row {
+    background-color: $main-color;
+  }
+  .mdc-data-table__header-cell {
+    color: #ffffff;
+    border-bottom-color: rgba(#fff, .2);
+
+    &:nth-child(1) {
+      width: 18%;
+    }
+  }
+
+  .mat-sort-header-arrow {
+    color: #fff;
+  }
+
+  .mat-mdc-paginator {
+    background-color: $main-color;
+    color: rgba(#fff, .8);
+
+    .mat-mdc-text-field-wrapper {
+      background-color: #fff;
+      border-radius: 4px;
+    }
+
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: $main-color;
+    }
+    
+    .mat-mdc-icon-button {
+      color: rgba(#fff,.7);
+      .mat-mdc-paginator-icon {
+        color: rgba(#fff,.7);
+        fill: rgba(#fff,.7);
+      }
+
+      &:disabled {
+        color: rgba(#fff,.38);
+        .mat-mdc-paginator-icon {
+          color: rgba(#fff,.38);
+          fill: rgba(#fff,.38);
+        }
+      }
+    }
+  }
+  
+}
