@@ -2,102 +2,102 @@
   "toDoList": [
     {
       "priority": 1,
-      "description": "Lorem Ipsum",
+      "description": "Develop a new App",
       "dueDate": "20/06/2023"
     },
     {
       "priority": 2,
-      "description": "Lorem Ipsum",
+      "description": "Develop new skill",
       "dueDate": "30/06/2023"
     },
     {
       "priority": 3,
-      "description": "Lorem Ipsum",
+      "description": "Work on my weaknesses",
       "dueDate": "23/12/2023"
     },
     {
       "priority": 4,
-      "description": "Lorem Ipsum",
+      "description": "Develop a website for a friend",
       "dueDate": "08/08/2023"
     },
     {
       "priority": 5,
-      "description": "Lorem Ipsum",
+      "description": "Create a code group to help new developers",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 6,
-      "description": "Lorem Ipsum",
+      "description": "Record new song on free time",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 7,
-      "description": "Lorem Ipsum",
+      "description": "Study last features of EcmaScript",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 8,
-      "description": "Lorem Ipsum",
+      "description": "Study guitar",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 9,
-      "description": "Lorem Ipsum",
+      "description": "Swap the guitar tubes",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 10,
-      "description": "Lorem Ipsum",
+      "description": "Upgrade my computer harwdare",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 11,
-      "description": "Lorem Ipsum",
+      "description": "Make a presentation for the meeting",
       "dueDate": "20/06/2023"
     },
     {
       "priority": 12,
-      "description": "Lorem Ipsum",
+      "description": "Write the unit tests for the project",
       "dueDate": "30/06/2023"
     },
     {
       "priority": 13,
-      "description": "Lorem Ipsum",
+      "description": "Improve the app UX",
       "dueDate": "23/12/2023"
     },
     {
       "priority": 14,
-      "description": "Lorem Ipsum",
+      "description": "Draw new screens for the app",
       "dueDate": "08/08/2023"
     },
     {
       "priority": 15,
-      "description": "Lorem Ipsum",
+      "description": "Publish the application",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 16,
-      "description": "Lorem Ipsum",
+      "description": "Read the github issues page",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 17,
-      "description": "Lorem Ipsum",
+      "description": "List the most important issues to work on",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 18,
-      "description": "Lorem Ipsum",
+      "description": "Work and publish the hotfixes",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 19,
-      "description": "Lorem Ipsum",
+      "description": "Improve the user support channel",
       "dueDate": "31/01/2024"
     },
     {
       "priority": 20,
-      "description": "Lorem Ipsum",
+      "description": "Set up the application tranlations",
       "dueDate": "31/01/2024"
     }
   ]

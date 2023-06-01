@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '
 import { IList } from './list.interface';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort, SortDirection } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -13,24 +14,20 @@ import { MatSort, SortDirection } from '@angular/material/sort';
 })
 export class ListComponent implements OnInit, AfterViewInit {
   listColumns: string[] = ['priority', 'description', 'dueDate'];
-  dataSource: IList[];
-  displayedDataSource: IList[];
+  dataSource: MatTableDataSource<IList>;
+
+
   serverUrl = 'http://localhost:5000/toDoList/';
 
   constructor(
-    private http: HttpClient,
-    private _paginator: MatPaginatorIntl
+    private http: HttpClient
   ) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
-    this._paginator.itemsPerPageLabel = 'Itens por página';
-    this._paginator.nextPageLabel = 'Próxima página';
-    this._paginator.previousPageLabel = 'Página anterior';
-    this._paginator.firstPageLabel = 'Primeira página';
-    this._paginator.lastPageLabel = 'Última página';
+    this.dataSource = new MatTableDataSource<IList>();
   }
 
   ngAfterViewInit(): void {
@@ -39,41 +36,26 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   loadData(): void {
     this.http.get<IList[]>(this.serverUrl).subscribe((data: IList[]) => {
-      this.dataSource = data;
-      this.sortData();
-      this.paginateData();
+      this.dataSource.data = data;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
   sortData(): void {
-    if (this.sort.active && this.sort.direction) {
-      this.dataSource.sort((a, b) => {
-        const isAsc = this.sort.direction === 'asc';
-        switch (this.sort.active) {
-          case 'priority':
-            return this.compare(a.priority, b.priority, isAsc);
-          case 'description':
-            return this.compare(a.description, b.description, isAsc);
-          case 'dueDate':
-            return this.compare(a.dueDate, b.dueDate, isAsc);
-          default:
-            return 0;
-        }
-      });
-    }
-  }
+    this.dataSource.sortingDataAccessor = (data: any, sortHeaderId) => {
+      switch (sortHeaderId) {
+        case 'priority':
+          return data.priority;
+        case 'description':
+          return data.description;
+        case 'dueDate':
+          return data.dueDate;
+        default:
+          return '';
+      }
+    };
 
-  compare(a: any, b: any, isAsc: boolean): number {
-    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-  }
-
-  paginateData(): void {
-    if (this.paginator) {
-      this.paginator.length = this.dataSource.length;
-      this.paginator.page.subscribe(() => {
-        const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-        this.displayedDataSource = this.dataSource.slice(startIndex, startIndex + this.paginator.pageSize);
-      });
-    }
+    this.dataSource.sort = this.sort;
   }
 }
